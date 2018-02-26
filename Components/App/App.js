@@ -58,7 +58,7 @@ class App extends Component {
     })
   }
 
-  search(term) {
+  Spotify.search(term) {
     console.log(term);
   }
 
