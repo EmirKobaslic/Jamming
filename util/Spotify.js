@@ -1,6 +1,6 @@
 let accessToken = '';
 const clientId = '8cf264b555644f03951d544eb2271163';
-const redirectUri = 'localhost:3000';
+const redirectUri = 'http://localhost:3000/';
 
 const Spotify = {
   getAccessToken() {
@@ -36,6 +36,28 @@ const Spotify = {
          uri: track.uri
        }));
       })
+    },
+
+    savePlaylist (playlistName, trackURI) {
+      if (playlistName && trackURI) {
+        const currentAccessToken = accessToken;
+        const headers = {
+          Authorization: `Bearer ${accessToken}`
+        };
+        let userID = '';
+
+        return fetch('https://api.spotify.com/v1/me', {
+          headers: headers
+        }).then(jsonResponse => {
+          return jsonResponse.map(user => {
+            id: user.id;
+          })
+        }).then(fetch())
+
+      }
+      else {
+        return
+      }
     }
 }
 
