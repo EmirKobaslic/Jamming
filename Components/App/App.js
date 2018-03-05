@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-// emir kobaslic
+
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
