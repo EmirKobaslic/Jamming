@@ -5,20 +5,27 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.search = this.search.bind(this);
+    this.state = {
+      term: ''
+    }
+
+    this.handleSearch = this.handleSearch.bind(this);
     this.handleTermChange = this.handleTermChange.bind(this)
   }
-  search() {
-    this.props.onSearch(this.state.term)
+
+  handleSearch(event) {
+    this.props.onSearch(this.state.term);
   }
+
   handleTermChange(event) {
-    this.props.onSearch(event.target.value);
+    this.setState({term: event.target.value});
   }
+
   render() {
     return(
       <div className="SearchBar">
-        <input placeholder="Enter a Song, Album, or Artist" onChange={this.handleTermChange} />
-        <a>SEARCH</a>
+        <input placeholder="Enter a Song, Album, or Artist" onChange={this.handleTermChange}/>
+        <a onClick={this.handleSearch}>SEARCH</a>
       </div>
     );
   }
